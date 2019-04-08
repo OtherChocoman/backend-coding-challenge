@@ -18,6 +18,7 @@ Developed using Visual Studio 2019 community.
 ### How to run end to end tests
  - Start api using dotnet run
  - run `dotnet test .\BackendChallenge.EndToEnd\BackendChallenge.EndToEnd.csproj`
+ - You can modify the api endpoint in the appsettings.json file
 
 ## Requirements
 
