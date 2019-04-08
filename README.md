@@ -12,18 +12,18 @@ Api can be found here: https://backend-challenge-suggestions.herokuapp.com/sugge
   - Run the following commands at the project root.
  
 ### How to build
- - run `dotnet build`
+ - Run `dotnet build`
 
 ### How to start api
- - run `dotnet run --project .\BackendChallenge\BackendChallenge.csproj`
+ - Run `dotnet run --project .\BackendChallenge\BackendChallenge.csproj`
 
 ### How to run unit tests
- - run `dotnet test .\BackendChallenge.Tests\BackendChallenge.Tests.csproj`
+ - Run `dotnet test .\BackendChallenge.Tests\BackendChallenge.Tests.csproj`
 
 ### How to run end to end tests
- - Start api using dotnet run
- - run `dotnet test .\BackendChallenge.EndToEnd\BackendChallenge.EndToEnd.csproj`
- - You can modify the api endpoint in the appsettings.json file
+ - Start the api
+ - Run `dotnet test .\BackendChallenge.EndToEnd\BackendChallenge.EndToEnd.csproj`
+ - You can modify the api endpoint in the BackendChallenge.EndToEnd\appsettings.json file
 
 ## Requirements
 
