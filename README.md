@@ -1,6 +1,21 @@
 # Coveo Backend Coding Challenge
 (inspired by https://github.com/busbud/coding-challenge-backend-c)
 
+Developed using Visual Studio 2019 community.
+
+## Documentation
+### How to build
+ - dotnet build
+
+### How to start api
+ - dotnet run --project .\BackendChallenge\BackendChallenge.csproj
+
+### How to run unit tests
+ - dotnet test .\BackendChallenge.Tests\BackendChallenge.Tests.csproj
+
+### How to run end to end tests
+ - dotnet test .\BackendChallenge.EndToEnd\BackendChallenge.EndToEnd.csproj
+
 ## Requirements
 
 Design a REST API endpoint that provides auto-complete suggestions for large cities.
