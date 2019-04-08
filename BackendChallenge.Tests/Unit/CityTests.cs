@@ -1,5 +1,6 @@
 using BackendChallenge.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace BackendChallenge.Tests.Unit
@@ -23,6 +24,22 @@ namespace BackendChallenge.Tests.Unit
             var city = new City("myCityName", "myCityAsciiName", new List<string> { "altname1" }, "CA", "Quebec", 42f, 13.37f);
 
             Assert.AreEqual("myCityName, Quebec, CA", city.DisplayName);
+        }
+
+        [DataTestMethod]
+        [DataRow(null, "cityAsciiName", "country", "region")]
+        [DataRow("cityName", null, "country", "region")]
+        [DataRow("cityName", "cityAsciiName", null, "region")]
+        [DataRow("cityName", "cityAsciiName", "country", null)]
+        public void When_Initializing_City_With_Null_Parameters_Then_Argument_Null_Exception_Is_Thrown(
+            string name, 
+            string asciiName, 
+            string country, 
+            string region)
+        {
+            void action() => new City(name, asciiName, new List<string> { "altname1" }, country, region, 42f, 13.37f);
+
+            Assert.ThrowsException<ArgumentNullException>(action);
         }
 
         [DataTestMethod]
