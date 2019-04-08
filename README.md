@@ -1,10 +1,15 @@
 # Coveo Backend Coding Challenge
 (inspired by https://github.com/busbud/coding-challenge-backend-c)
 
+## Documentation
 Developed using Visual Studio 2019 community.
 
-## Documentation
- Run the following commands at the project root.
+Api can be found here: https://backend-challenge-suggestions.herokuapp.com/suggestions
+
+## Instructions
+
+  - Install the .net core 2.1 sdk found here https://dotnet.microsoft.com/download
+  - Run the following commands at the project root.
  
 ### How to build
  - run `dotnet build`
