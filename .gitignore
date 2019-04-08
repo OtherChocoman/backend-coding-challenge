@@ -1,0 +1,7 @@
+.vs/
+BackendChallenge/bin/
+BackendChallenge/obj/
+BackendChallenge.Tests/bin/
+BackendChallenge.Tests/obj/
+BackendChallenge.EndToEnd/bin/
+BackendChallenge.EndToEnd/obj/
