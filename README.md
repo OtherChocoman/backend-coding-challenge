@@ -4,17 +4,20 @@
 Developed using Visual Studio 2019 community.
 
 ## Documentation
+ Run the following commands at the project root.
+ 
 ### How to build
- - dotnet build
+ - run `dotnet build`
 
 ### How to start api
- - dotnet run --project .\BackendChallenge\BackendChallenge.csproj
+ - run `dotnet run --project .\BackendChallenge\BackendChallenge.csproj`
 
 ### How to run unit tests
- - dotnet test .\BackendChallenge.Tests\BackendChallenge.Tests.csproj
+ - run `dotnet test .\BackendChallenge.Tests\BackendChallenge.Tests.csproj`
 
 ### How to run end to end tests
- - dotnet test .\BackendChallenge.EndToEnd\BackendChallenge.EndToEnd.csproj
+ - Start api using dotnet run
+ - run `dotnet test .\BackendChallenge.EndToEnd\BackendChallenge.EndToEnd.csproj`
 
 ## Requirements
 
