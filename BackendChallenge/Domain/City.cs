@@ -28,10 +28,17 @@ namespace BackendChallenge.Domain
 
         public City(string name, string asciiName, IReadOnlyList<string> alternateNames, string country, string region, float latitude, float longitude)
         {
-            this.Name = name ?? throw new ArgumentNullException(nameof(name));
-            this.AsciiName = asciiName ?? throw new ArgumentNullException(nameof(name));
-            this.Country = country ?? throw new ArgumentNullException(nameof(name));
-            this.Region = region ?? throw new ArgumentNullException(nameof(name));
+            ThrowIfNullOrWhiteSpace(name, nameof(name));
+            ThrowIfNullOrWhiteSpace(asciiName, nameof(asciiName));
+            ThrowIfNullOrWhiteSpace(country, nameof(country));
+            ThrowIfNullOrWhiteSpace(region, nameof(region));
+            ThrowIfLatitudeIsInvalid(latitude);
+            ThrowIfLongitudeIsInvalid(longitude);
+
+            this.Name = name;
+            this.AsciiName = asciiName;
+            this.Country = country;
+            this.Region = region;
             this.AlternateNames = alternateNames?.Where(x => !string.IsNullOrWhiteSpace(x)).ToList() ?? new List<string>();
             this.Latitude = latitude;
             this.Longitude = longitude;
@@ -81,6 +88,34 @@ namespace BackendChallenge.Domain
         {
             var difference = (float)Math.Abs((decimal)(this.Longitude - longitude));
             return 1 - difference / LongitudePossibleValues;
+        }
+
+        private static void ThrowIfNullOrWhiteSpace(string parameter, string parameterName)
+        {
+            if(parameter == null)
+            {
+                throw new ArgumentNullException(parameterName);
+            }
+            if (parameter == string.Empty)
+            {
+                throw new ArgumentException($"{parameterName} cannot be empty");
+            }
+        }
+
+        private static void ThrowIfLatitudeIsInvalid(float latitude)
+        {
+           if(latitude > 90 || latitude < -90)
+           {
+                throw new ArgumentException("Latitude must be between -90 and 90");
+           }
+        }
+
+        private static void ThrowIfLongitudeIsInvalid(float longitude)
+        {
+            if (longitude > 180 || longitude < -180)
+            {
+                throw new ArgumentException("Latitude must be between -90 and 90");
+            }
         }
     }
 }

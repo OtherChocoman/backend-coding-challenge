@@ -43,6 +43,42 @@ namespace BackendChallenge.Tests.Unit
         }
 
         [DataTestMethod]
+        [DataRow("", "cityAsciiName", "country", "region")]
+        [DataRow("cityName", "", "country", "region")]
+        [DataRow("cityName", "cityAsciiName", "", "region")]
+        [DataRow("cityName", "cityAsciiName", "country", "")]
+        public void When_Initializing_City_With_Empty_Parameters_Then_Argument_Exception_Is_Thrown(
+            string name,
+            string asciiName,
+            string country,
+            string region)
+        {
+            void action() => new City(name, asciiName, new List<string> { "altname1" }, country, region, 42f, 13.37f);
+
+            Assert.ThrowsException<ArgumentException>(action);
+        }
+
+        [DataTestMethod]
+        [DataRow(-91)]
+        [DataRow(91)]
+        public void When_Initializing_City_With_Invalid_Latitude_Then_Argument_Exception_Is_Thrown(float latitude)
+        {
+            void action() => new City("myCityName", "myCityAsciiName", new List<string> { "altname1" }, "CA", "Quebec", latitude, 13.37f);
+
+            Assert.ThrowsException<ArgumentException>(action);
+        }
+
+        [DataTestMethod]
+        [DataRow(-181)]
+        [DataRow(181)]
+        public void When_Initializing_City_With_Invalid_Longitude_Then_Argument_Exception_Is_Thrown(float longitude)
+        {
+            void action() => new City("myCityName", "myCityAsciiName", new List<string> { "altname1" }, "CA", "Quebec", 42f, longitude);
+
+            Assert.ThrowsException<ArgumentException>(action);
+        }
+
+        [DataTestMethod]
         [DataRow("Quebec", "QuEbEc")]
         [DataRow("Quebec", "Que")]
         [DataRow("Quebec", "bec")]
